@@ -151,9 +151,9 @@
         const start = new Date();
         const delayReductionGeometricFactor = 0.6; // 1/n
         const delayAdjustmentThreshold = 5; // ms
-        let baseDeleteDelay = 100;
+        let baseDeleteDelay = 5000;
         let deleteDelay = baseDeleteDelay;
-        let baseSearchDelay = 100;
+        let baseSearchDelay = 5000;
         let searchDelay = baseSearchDelay;
         let delCount = 0;
         let failCount = 0;
@@ -285,6 +285,8 @@
                 }
                 
                 for (let i = 0; i < messagesToDelete.length; i++) {
+                    await wait 
+                    
                     const message = messagesToDelete[i];
                     if (stopHndl && stopHndl()===false) return end(log.error('Stopped by you!'));
 
